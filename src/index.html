@@ -6,26 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
 </head>
-<body>
+<body class='body'>
   <div class="app">
     <button class="call-form" type="button">Добавить тикет</button>
-    <ul class="task-list"></ul>
+    <ul class="task-list">
+      <li class="list-item">
+        <form class="list-item-container">
+          <input type="radio">
+          <h2>Take a nap</h2>
+          <time>21/01/1971 12:33</time>
+          <div class="list-item-btn-containe">
+            <button class="list-item-btn change">C</button>
+            <button class="list-item-btn delete">X</button>
+          </div>
+        </form>
+        <div class="invalid list-item-texr-container">
+          <span>Go and take long nap Go and take long nap Go and take long nap Go and take long nap Go and take long nap Go and take long nap Go and take long nap</span>
+        </div>
+      </li>
+    </ul>
   </div>
-  <form class="add-task invalid form">
-    <input class="form-input-header" name="header">
-    <input class="form-input-text" name="text">
-    <div class="form-btn-container">
-      <button type="submit" class="form-btn">Добавить тикет</button>
-      <button type="submit" class="form-btn">Отмена</button>
-    </div>
-  </form>
-  <form class="change-task invalid form">
-    <input class="form-input-header" name="header">
-    <input class="form-input-text" name="text">
-    <div class="form-btn-container">
-      <button type="submit" class="form-btn">Изменить тикет</button>
-      <button type="submit" class="form-btn">Отмена</button>
-    </div>
-  </form>
+  <div class="modal invalid">
+    <form class="add-task form invalid">
+      <input class="form-input-header" name="header">
+      <input class="form-input-text" name="text">
+      <div class="form-btn-container">
+        <button type="submit" class="form-btn submit">Добавить тикет</button>
+        <button type="button" class="form-btn cancel">Отмена</button>
+      </div>
+    </form>
+    <form class="change-task form invalid">
+      <input class="form-input-header" name="header">
+      <input class="form-input-text" name="text">
+      <div class="form-btn-container">
+        <button type="submit" class="form-btn submit">Изменить тикет</button>
+        <button type="button" class="form-btn cancel">Отмена</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

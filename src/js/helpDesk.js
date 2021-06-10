@@ -16,6 +16,7 @@ export default class HelpDesk {
   }
 
   addTask() {
+    document.querySelector('.modal').classList.toggle('invalid');
     document.querySelector('.add-task').classList.toggle('invalid');
   }
 }
