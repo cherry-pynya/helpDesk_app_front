@@ -26,9 +26,15 @@ export default class Form {
   onCancel() {
     document.querySelector('.modal').classList.toggle('invalid');
     document.querySelector('.add-task').classList.toggle('invalid');
+    this.clear();
   }
 
   submit() {
+    this.clear();
+  }
 
+  clear() {
+    this.element.querySelector('.form-input-header').value = '';
+    this.element.querySelector('.form-input-text').value = '';
   }
 }

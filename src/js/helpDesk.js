@@ -1,4 +1,6 @@
 /* eslint-disable class-methods-use-this */
+import Item from './item';
+
 export default class HelpDesk {
   constructor(el) {
     if (typeof (el) === 'string') {
@@ -13,6 +15,13 @@ export default class HelpDesk {
     this.addTask = this.addTask.bind(this);
 
     this.btn.addEventListener('click', this.addTask);
+  }
+
+  init() {
+    [...this.element.querySelectorAll('.list-item')].forEach((el) => {
+      // eslint-disable-next-line no-unused-vars
+      const item = new Item(el);
+    });
   }
 
   addTask() {
