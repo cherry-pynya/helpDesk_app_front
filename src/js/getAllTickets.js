@@ -1,14 +1,18 @@
 export default function getAllTickets() {
+  const params = new URLSearchParams();
+  params.append('method', 'allTickets');
   const xhr = new XMLHttpRequest();
-  xhr.open('GET', 'http://localhost:7070/?allTickets', true);
-  xhr.addEventListener('load', () => {
-    if (xhr.status >= 200 && xhr.status < 300) {
-      try {
-        const data = JSON.parse(xhr.responseText);
-        return data;
-      } catch (e) {
-        console.error(e);
+  return new Promise((resolve, reject) => {
+    xhr.open('GET', `http://localhost:7070/?${params}`, true);
+    xhr.addEventListener('load', () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        try {
+          resolve(xhr.response);
+        } catch (e) {
+          reject(e);
+        }
       }
-    }
+    });
+    xhr.send();
   });
 }

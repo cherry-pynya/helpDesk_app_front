@@ -2,12 +2,14 @@
 import Item from './item';
 
 export default class HelpDesk {
-  constructor(el) {
+  constructor(el, arr) {
     if (typeof (el) === 'string') {
       this.element = document.querySelector(el);
     } else {
       this.element = el;
     }
+
+    this.tasks = arr;
 
     this.btn = this.element.querySelector('.call-form');
     this.list = this.element.querySelector('.task-list');
@@ -18,6 +20,7 @@ export default class HelpDesk {
   }
 
   init() {
+    console.log(this.tasks);
     [...this.element.querySelectorAll('.list-item')].forEach((el) => {
       // eslint-disable-next-line no-unused-vars
       const item = new Item(el);
