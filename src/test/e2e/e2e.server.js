@@ -1,4 +1,3 @@
-
 /* eslint import/no-extraneous-dependencies: 2 */
 const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');

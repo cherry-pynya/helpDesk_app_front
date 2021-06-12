@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable consistent-return */
 /* eslint-disable class-methods-use-this */
 import postTicket from './postTicket';
 import changeTicket from './changeTicket';
