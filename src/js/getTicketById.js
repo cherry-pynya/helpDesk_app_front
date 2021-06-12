@@ -1,6 +1,7 @@
-export default function getAllTickets() {
+export default function getTicketById(id) {
   const params = new URLSearchParams();
-  params.append('method', 'allTickets');
+  params.append('method', 'ticketById');
+  params.append('id', id);
   const xhr = new XMLHttpRequest();
   return new Promise((resolve, reject) => {
     xhr.open('GET', `http://localhost:7070/?${params}`, true);

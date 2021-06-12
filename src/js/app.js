@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import moment from 'moment';
 import HelpDesk from './helpDesk';
 import Form from './form';
 import getAllTickets from './getAllTickets';
@@ -8,6 +9,6 @@ data.then((resolve) => {
   window.heplDesk = new HelpDesk('.app', resolve);
   window.heplDesk.init();
   [...document.querySelectorAll('.form')].forEach((el) => {
-    const form = new Form(el);
+    const form = new Form(el, window.heplDesk);
   });
 });
