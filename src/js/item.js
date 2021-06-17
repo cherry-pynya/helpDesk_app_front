@@ -32,9 +32,9 @@ export default class Item {
 
   onChangeTicket() {
     const { id } = this.element.dataset;
-    const change = getTicketById(id);
+    const change = getTicketById(id, this.app.server);
     change.then((resolve) => {
-      const task = resolve[0];
+      const task = resolve;
       this.app.changeTask();
       document.querySelector('.change-task').querySelector('.form-input-header').value = task.name;
       if ('description' in task) {
@@ -45,7 +45,7 @@ export default class Item {
   }
 
   onChange() {
-    changeStatus(this.getParams());
+    changeStatus(this.getParams(), this.app.server);
   }
 
   onSubmit(e) {

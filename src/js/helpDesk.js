@@ -4,7 +4,7 @@ import taskFactory from './taskFactory';
 import getAllTickets from './getAllTickets';
 
 export default class HelpDesk {
-  constructor(el, arr) {
+  constructor(el, arr, server) {
     if (typeof (el) === 'string') {
       this.element = document.querySelector(el);
     } else {
@@ -12,7 +12,7 @@ export default class HelpDesk {
     }
 
     this.tasks = arr;
-
+    this.server = server;
     this.btn = this.element.querySelector('.call-form');
     this.list = this.element.querySelector('.task-list');
 
@@ -22,6 +22,7 @@ export default class HelpDesk {
   }
 
   init() {
+    console.log(this.tasks);
     this.element.querySelector('.task-list').textContent = '';
     if (this.tasks.length > 0) {
       this.tasks.forEach((a) => {
@@ -46,7 +47,8 @@ export default class HelpDesk {
   }
 
   update() {
-    const update = getAllTickets();
+    console.log(this.server);
+    const update = getAllTickets(this.server);
     update.then((resolve) => {
       this.tasks = resolve;
       this.init();

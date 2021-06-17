@@ -5,13 +5,14 @@ import postTicket from './postTicket';
 import changeTicket from './changeTicket';
 
 export default class Form {
-  constructor(el, app) {
+  constructor(el, app, server) {
     if (typeof (el) === 'string') {
       this.element = document.querySelector(el);
     } else {
       this.element = el;
     }
     this.app = app;
+    this.server = server;
 
     this.submitBtn = this.element.querySelector('.submit');
     this.cancelBtn = this.element.querySelector('.cancel');
@@ -42,7 +43,8 @@ export default class Form {
         .forEach((el) => {
           params.append(el.name, el.value);
         });
-      const ticket = postTicket(params);
+      params.append('method', 'createTicket');
+      const ticket = postTicket(params, this.app.server);
       this.app.update();
       ticket.then(() => {
         this.app.update();
@@ -58,7 +60,7 @@ export default class Form {
           params.append(el.name, el.value);
         });
       params.append('id', this.element.dataset.id);
-      const ticket = changeTicket(params);
+      const ticket = changeTicket(params, this.app.server);
       this.app.update();
       ticket.then(() => {
         this.app.update();

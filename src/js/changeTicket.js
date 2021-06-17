@@ -1,7 +1,8 @@
-export default function changeTicket(params) {
+export default function changeTicket(params, server) {
+  params.append('method', 'editTicket');
   const xhr = new XMLHttpRequest();
   return new Promise((resolve) => {
-    xhr.open('POST', 'https://netologyahj7cherrypynya.herokuapp.com/?method=changeTicketData');
+    xhr.open('PUT', `${server}/tickets/:id/?${params}`);
     xhr.addEventListener('load', () => {
       if (xhr.status === 204) {
         resolve(xhr.response);
