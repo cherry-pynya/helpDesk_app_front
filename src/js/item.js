@@ -35,22 +35,24 @@ export default class Item {
     const change = getTicketById(id, this.app.server);
     change.then((resolve) => {
       const task = resolve;
-      this.app.changeTask();
       document.querySelector('.change-task').querySelector('.form-input-header').value = task.name;
       if ('description' in task) {
         document.querySelector('.change-task').querySelector('.form-input-text').value = task.description;
       }
       document.querySelector('.change-task').dataset.id = task.id;
     });
+    this.app.changeTask();
   }
 
   onChange() {
     changeStatus(this.getParams(), this.app.server);
+    this.app.update();
   }
 
   onSubmit(e) {
     e.preventDefault();
-    deleteTicket(this.getParams());
+    deleteTicket(this.getParams(), this.app.server);
+    this.app.update();
   }
 
   getParams() {

@@ -22,7 +22,6 @@ export default class HelpDesk {
   }
 
   init() {
-    console.log(this.tasks);
     this.element.querySelector('.task-list').textContent = '';
     if (this.tasks.length > 0) {
       this.tasks.forEach((a) => {
@@ -47,7 +46,6 @@ export default class HelpDesk {
   }
 
   update() {
-    console.log(this.server);
     const update = getAllTickets(this.server);
     update.then((resolve) => {
       this.tasks = resolve;

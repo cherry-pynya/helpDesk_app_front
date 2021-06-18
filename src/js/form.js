@@ -73,6 +73,6 @@ export default class Form {
     this.element.querySelector('.form-input-header').value = '';
     this.element.querySelector('.form-input-text').value = '';
     document.querySelector('.modal').classList.toggle('invalid');
-    document.querySelector('.add-task').classList.toggle('invalid');
+    this.element.classList.toggle('invalid');
   }
 }
