@@ -3,7 +3,7 @@ import HelpDesk from './helpDesk';
 import Form from './form';
 import getAllTickets from './getAllTickets';
 
-const server = 'http://localhost:7777';
+const server = 'https://netologyahj7cherrypynya.herokuapp.com';
 const data = getAllTickets(server);
 data.then((resolve) => {
   window.heplDesk = new HelpDesk('.app', resolve, server);
